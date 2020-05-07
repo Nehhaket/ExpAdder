@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha"
   },
-  "author": "Marcin Zięba",
+  "author": "Marcin Zięba <nehhaket@gmail.com>",
   "license": "",
   "dependencies": {
     "mocha": "^7.1.2"
