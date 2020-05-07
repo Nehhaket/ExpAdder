@@ -1,0 +1,14 @@
+{
+  "name": "ethworks",
+  "version": "0.0.0",
+  "description": "Math expression adder",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Marcin Zięba",
+  "license": "",
+  "dependencies": {
+    "mocha": "^7.1.2"
+  }
+}
