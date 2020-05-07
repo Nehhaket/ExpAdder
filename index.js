@@ -1,5 +1,30 @@
+/*
+ * name: 
+ *  add_two
+ *
+ * arguments:
+ *   - expression_1 : math expression
+ *   - expression_2 : math expression
+ * 
+ * returns:
+ *   - math expression
+ *
+ * note:
+ *   math expressions are represented as a collection of (key: value) pairs,
+ *   where key is an exponent and value is a coefficient. For ex.:
+ *       `2x^2 + 3` becomes `{ 2: 2, 0: 3 }`
+ *     `3x^3 + x^2` becomes `{ 3: 3, 1: 2 }`
+ * 
+ */
 const add_two = (expression_1 = {}, expression_2 = {}) => {
+// argument checks
+  if(typeof(expression_1) !== 'object' || expression_1.forEach !== undefined)
+    throw TypeError('wrong type for argument 1')
+  if(typeof(expression_2) !== 'object' || expression_1.forEach !== undefined)
+    throw TypeError('wrong type for argument 2')
 
+// for every key in expression_2 check if it exists in expression_1,
+// if it does then incement the value, otherwise insert new
   for (key in expression_2)
     if(key in expression_1)
       expression_1[key] = parseFloat(expression_1[key])
