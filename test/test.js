@@ -39,5 +39,14 @@ describe('ExpAdder', function() {
         assert.strictEqual(true, err instanceof TypeError)
       }
     })
+
+    it('should throw TypeError when given wrong type for coefficient', function() {
+      try {
+        ExpAdder.add_two({ 1: 'a', 2: 'b' }, {})
+        throw Error
+      } catch(err) {
+        assert.strictEqual(true, err instanceof TypeError)
+      }
+    })
   })
 })
