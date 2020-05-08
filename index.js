@@ -26,6 +26,11 @@ const add_two = (expression_1 = {}, expression_2 = {}) => {
   || expression_2.constructor !== Object
   || expression_2.forEach     !== undefined)
     throw TypeError('wrong type for argument 2')
+// coefficient checks
+  for(key in expression_1) if(isNaN(parseFloat(expression_1[key])))
+    throw TypeError('Coefficient "' + expression_1[key] + '" is not a number.')
+  for(key in expression_2) if(isNaN(parseFloat(expression_2[key])))
+    throw TypeError('Coefficient "' + expression_2[key] + '" is not a number.')
 
 // for every key in expression_2 check if it exists in expression_1,
 // if it does then incement the value, otherwise insert new
@@ -34,7 +39,7 @@ const add_two = (expression_1 = {}, expression_2 = {}) => {
       expression_1[key] = parseFloat(expression_1[key])
                         + parseFloat(expression_2[key])
     else expression_1[key] = expression_2[key]
-
+  
   return expression_1
 }
 
