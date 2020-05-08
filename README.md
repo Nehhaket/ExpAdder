@@ -1,5 +1,6 @@
 # Expression Adder
 This package sums mathematical expressions.
+
 It's been done for recruitment purposes.
 
 ## Running
@@ -25,7 +26,8 @@ $ cd ExpAdder && npm install
 ```
 
 ## Testing
-In order to run tests
+
+#### In order to run tests
 ```
 $ npm test
 ```
