@@ -1,6 +1,6 @@
 /*
  * name: 
- *  add_two
+ *  sum
  *
  * arguments:
  *   - args : list of math expression
@@ -15,7 +15,7 @@
  *     `3x^3 + x^2` becomes `{ 3: 3, 1: 2 }`
  * 
  */
-const add = (...args) => {
+const sum = (...args) => {
 // argument checks
   args.forEach((expression, index) => {
     if(typeof(expression) !== 'object' || expression.constructor !== Object) {
@@ -43,6 +43,6 @@ const add = (...args) => {
   return result;
 }
 
-const ExpAdder = { add };
+const ExpAdder = { sum };
 
 module.exports = ExpAdder;

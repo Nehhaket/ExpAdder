@@ -4,7 +4,7 @@ const ExpAdder = require('../index');
 describe('ExpAdder', function() {
   describe('#add()', function() {
     it('should work propperly for inputs given in example', function() {
-      const result   = ExpAdder.add({ 2: 2, 0: 3 }, { 3: 3, 2: 1 });
+      const result   = ExpAdder.sum({ 2: 2, 0: 3 }, { 3: 3, 2: 1 });
       const expected = { 2: 3, 3: 3, 0: 3 };
       for (key in result) {
         assert.strictEqual(key in expected, true);
@@ -13,7 +13,7 @@ describe('ExpAdder', function() {
     });
     
     it('should return empty object when given no arguments', function() {
-      const result  = ExpAdder.add();
+      const result  = ExpAdder.sum();
       const entries = Object.entries(result);
       assert.strictEqual(typeof result, 'object');
       assert.strictEqual(entries.length, 0);
@@ -24,7 +24,7 @@ describe('ExpAdder', function() {
     arguments_test_data.forEach( (elem) => {
       it('should throw TypeError when given ' + elem.constructor.name + ' as an argument', function() {
         try {
-          ExpAdder.add(elem, elem);
+          ExpAdder.sum(elem, elem);
           throw Error;
         } catch(err) {
           assert.strictEqual(true, err instanceof TypeError);
@@ -47,7 +47,7 @@ describe('ExpAdder', function() {
             args.push({});
           }
           args.push({ arg_number: coeff });
-          ExpAdder.add(...args);
+          ExpAdder.sum(...args);
           throw Error;
         } catch(err) {
           assert.strictEqual(true, err instanceof TypeError);
