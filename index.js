@@ -7,7 +7,7 @@
  *   - expression_2 : math expression
  * 
  * returns:
- *   - math expression
+ *   - math expression; sum of arguments
  *
  * note:
  *   math expressions are represented as a collection of (key: value) pairs,
@@ -18,9 +18,13 @@
  */
 const add_two = (expression_1 = {}, expression_2 = {}) => {
 // argument checks
-  if(typeof(expression_1) !== 'object' || expression_1.forEach !== undefined)
+  if(typeof(expression_1)     !== 'object'
+  || expression_1.constructor !== Object
+  || expression_1.forEach     !== undefined)
     throw TypeError('wrong type for argument 1')
-  if(typeof(expression_2) !== 'object' || expression_1.forEach !== undefined)
+  if(typeof(expression_2)     !== 'object'
+  || expression_2.constructor !== Object
+  || expression_2.forEach     !== undefined)
     throw TypeError('wrong type for argument 2')
 
 // for every key in expression_2 check if it exists in expression_1,
