@@ -3,17 +3,18 @@ This package sums mathematical expressions.
 It's been done for recruitment purposes.
 
 ## Running
-In order to run the package do the following:
+
+#### In order to run the package do the following:
 1. Make sure you have Node.js with npm
 2. Clone repository
 ```
-$ git clone https://github.com/<repo_name>.git
+$ git clone https://github.com/ExpAdder.git
 ```
-3. Go into `<dir_name>` and install package
+3. Go into `ExpAdder/` and install package
 ```
-$ cd <dir_name> && npm install
+$ cd ExpAdder && npm install
 ```
-3. Run Node.js REPL, import the package and use freely
+3. Run Node.js REPL, import the package and use like this
 ```javascript
 > const ExpAdder = require('');
 > const example_expressions = [
