@@ -1,7 +1,20 @@
 # Expression Adder
 This package sums mathematical expressions.
 
-It's been done for recruitment purposes.
+## Documentation
+
+### `.sum()`
+Arguments:
+- args : list of math expressions
+
+Returns:
+- result : sum of arguments; math expression
+
+Note:
+Math expressions are represented by collections of (key : value) pairs,
+where key is an exponent and value is a coefficient. E.g.:
+'2x<sup>2</sup> + 3' becomes `{ 2: 2, 0: 3 }`
+'3x<sup>3</sup> + x<sup>2</sup>' becomes `{ 3: 3, 2: 1 }`
 
 ## Running
 
