@@ -26,13 +26,14 @@ $ npm test
 ```
 
 # Documentation
+Math expressions are represented by collections of `{ key : value }` pairs,
+where `key` is an exponent and `value` is a coefficient.
 ```
-Math expressions are represented by collections of (key : value) pairs,
-where key is an exponent and value is a coefficient. E.g.:
       2x^2 + 3   becomes   { 2: 2, 0: 3 }
     3x^3 + x^2   becomes   { 3: 3, 2: 1 }
-Exponents and coefficients can be passed as either float or string.
 ```
+Exponents and coefficients can be passed as either `float` or `string`.
+
 ## `.sum()`
 ### Arguments:
 - `args` : list of math expressions (any size)
