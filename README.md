@@ -48,7 +48,7 @@ const expressions = [
   { 3: 3, 2: 1 },
   { 3: 3, 2: 3, 0: 3}
 ];
-let result = ExpAdder.add(...expressions);
+let result = ExpAdder.sum(...expressions);
 // result: { 3: 6, 2: 6, 0: 6 }
 ```
 Note: arguments list is destructured for convenience.<br>
