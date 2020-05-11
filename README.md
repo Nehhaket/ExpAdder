@@ -1,3 +1,9 @@
+# Table of contents
+[- Installation](#installation)
+[- Running](#running)
+[- Testing](#teseting)
+[- Documentation](#documentation)
+
 # Installation
 1. Make sure you have Node.js with npm
 2. Clone the repository
@@ -12,11 +18,11 @@ $ cd ExpAdder && npm install
 # Running
 1. [Install](#installation)
 2. Run Node.js REPL
-3. Import `index.js` with `require`
+3. Import `index.js` using `require`
 ```javascript
 const ExpAdder = require('./index');
 ```
-4. Use (for how to use, see [documentation](#documentation)).
+4. Use (for how to use, see [Documentation](#documentation)).
 
 # Testing
 1. [Install](#installation)
@@ -41,9 +47,9 @@ Exponents and coefficients can be passed as either `float` or `string`.
 ### Returns:
 - `result` : math expression; sum of arguments (empty object if none given)
 
-### Exaple:
+### Example:
 Note: this sections assumes that you already have `ExpAdder` object.
-For how to import it, see [Running](#running) section.
+For how to import it, see [Running](#running).
 ```javascript
 const expressions = [
   { 2: 2, 0: 3 },
