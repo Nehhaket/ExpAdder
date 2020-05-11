@@ -12,6 +12,17 @@ describe('ExpAdder', function() {
       }
     });
     
+    it('should work propperly with number strings as exponent', function() {
+      const result   = ExpAdder.sum({ '.5': 1, '2.35': '2.5' }, { 0.5: 1, '2.35': 1.5 });
+      const expected = { '0.5': 2, '2.35': 4};
+      const entries = Object.entries(result);
+      assert.strictEqual(entries.length, 2);
+      for (key in result) {
+        assert.strictEqual(key in expected, true);
+        assert.strictEqual(expected[key], result[key]);
+      }
+    });
+
     it('should return empty object when given no arguments', function() {
       const result  = ExpAdder.sum();
       const entries = Object.entries(result);
@@ -19,12 +30,11 @@ describe('ExpAdder', function() {
       assert.strictEqual(entries.length, 0);
     });
 
-// arguments type test
-    let arguments_test_data = [ [], '', 1 ];
-    arguments_test_data.forEach( (elem) => {
-      it('should throw TypeError when given ' + elem.constructor.name + ' as an argument', function() {
+    it('should throw TypeError when given wrong type for an argument', function() {
+      let arguments_test_data = [ [], '', 1 ];
+      arguments_test_data.forEach( (elem) => {
         try {
-          ExpAdder.sum(elem, elem);
+          ExpAdder.sum({ 1: 2, 2: 3 }, elem);
           throw Error;
         } catch(err) {
           assert.strictEqual(true, err instanceof TypeError);
@@ -32,28 +42,25 @@ describe('ExpAdder', function() {
       });
     });
 
-// coefficients type test
-    let coefficients_test_data = [
-      [ 1, '' ],
-      [ 2, [] ],
-      [ 1, {} ]
-    ];
-    coefficients_test_data.forEach(([arg_number, coeff]) => {
-      let coeff_type = coeff.constructor.name;
-      it('should throw TypeError when given ' + coeff_type + ' as a coefficient', function() {
+    it('should throw TypeError when given wrong type for a coefficient', function() {
+      let coefficients_test_data = [ { 1: '' }, { 2: [] }, { 1: {} } ];
+      coefficients_test_data.forEach((elem) => {
         try {
-          let args = [];
-          for(let i = 1; i < arg_number; i++) {
-            args.push({});
-          }
-          args.push({ arg_number: coeff });
-          ExpAdder.sum(...args);
+          ExpAdder.sum({ 1: 2, 2: 3 }, elem);
           throw Error;
         } catch(err) {
           assert.strictEqual(true, err instanceof TypeError);
-          assert.strictEqual(err.message, 'Invalid coefficient type "' + coeff_type + '" in expression ' + arg_number);
         }
       });
+    });
+    
+    it('should throw TypeError when given non-number string for en exponent', function() {
+      try {
+        ExpAdder.sum({ 1: 2, 2: 3 }, { 'a': 1 });
+        throw Error;
+      } catch(err) {
+        assert.strictEqual(true, err instanceof TypeError);
+      }
     });
   });
 });
