@@ -29,7 +29,7 @@ const sum = (...args) => {
   });
 
   return result;
-}
+};
 
 const ExpAdder = { sum };
 
